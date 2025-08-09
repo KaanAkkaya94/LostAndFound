@@ -57,4 +57,13 @@ const deleteReport = async (req, res) => {
   }
 };
 
-module.exports = { getReports, addReport, updateReport, deleteReport };
+const getAllReports = async (req, res) => {
+  try {
+    const reports = await LostReport.find().populate('userId', 'name').populate('comments.user', 'name');
+    res.json(reports);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { getReports, addReport, updateReport, deleteReport, getAllReports };

@@ -18,7 +18,8 @@ const Navbar = () => {
       <div>
         {user ? (
           <>
-            <Link to="/lostreports" className="mr-6 font-semibold hover:text-yellow-200 transition">Lost Reports</Link>
+            <Link to="/allreports" className="mr-6 font-semibold hover:text-yellow-200 transition">All Reports</Link>
+            <Link to="/lostreports" className="mr-6 font-semibold hover:text-yellow-200 transition">Create Lost Report</Link>
             <Link to="/profile" className="mr-6 font-semibold hover:text-yellow-200 transition">Profile</Link>
             <button
               onClick={handleLogout}
