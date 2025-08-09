@@ -25,7 +25,7 @@ const LostReports = () => {
   }, [user]);
 
   return (
-    <div className="container mx-auto p-6">
+      <div className="container mx-auto p-6 bg-gradient-to-br from-purple-100 via-yellow-50 to-pink-100 min-h-screen rounded-lg shadow">
       <LostReportForm
         reports={reports}
         setReports={setReports}
