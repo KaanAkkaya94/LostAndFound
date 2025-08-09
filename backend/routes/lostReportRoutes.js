@@ -1,9 +1,10 @@
 const express = require('express');
 const { getReports, addReport, updateReport, deleteReport, getAllReports } = require('../controllers/lostReportController');
 const { protect } = require('../middleware/authMiddleware');
+const LostReport = require('../models/LostReport');
 const router = express.Router();
 
-router.get('/all', protect, getAllReports); // <-- Add this line
+router.get('/all', protect, getAllReports); 
 
 router.route('/').get(protect, getReports).post(protect, addReport);
 router.route('/:id').put(protect, updateReport).delete(protect, deleteReport);
