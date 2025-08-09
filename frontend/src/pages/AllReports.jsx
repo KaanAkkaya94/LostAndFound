@@ -37,9 +37,14 @@ const AllReports = () => {
         { text: commentText[reportId] },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
+      // Manually add the user's name to the new comment object
+      const newComment = {
+        ...response.data,
+        user: { name: user?.name || 'User' }
+      };
       setReports(reports.map(r =>
         r._id === reportId
-          ? { ...r, comments: [...(r.comments || []), response.data] }
+          ? { ...r, comments: [...(r.comments || []), newComment] }
           : r
       ));
       setCommentText({ ...commentText, [reportId]: '' });
