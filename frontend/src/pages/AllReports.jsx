@@ -6,7 +6,7 @@ const AllReports = () => {
   const { user } = useAuth();
   const [reports, setReports] = useState([]);
   const [commentText, setCommentText] = useState({});
-  const [editingComment, setEditingComment] = useState({}); // { [commentId]: true }
+  const [editingComment, setEditingComment] = useState({});
   const [editCommentText, setEditCommentText] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -108,6 +108,18 @@ const AllReports = () => {
     setEditingComment({ ...editingComment, [commentId]: false });
   };
 
+  const handleDeleteReport = async (reportId) => {
+    if (!window.confirm('Are you sure you want to delete this report?')) return;
+    try {
+      await axiosInstance.delete(`/api/lostreports/${reportId}`, {
+        headers: { Authorization: `Bearer ${user.token}` },
+      });
+      setReports(reports.filter(r => r._id !== reportId));
+    } catch (error) {
+      alert('Failed to delete report.');
+    }
+  };
+
   return (
     <div className="container mx-auto p-6 bg-gradient-to-br from-purple-100 via-yellow-50 to-pink-100 min-h-screen rounded-lg shadow">
       <h1 className="text-2xl font-bold mb-6 text-purple-700">All Lost Item Reports</h1>
@@ -116,7 +128,17 @@ const AllReports = () => {
       ) : (
         reports.map((report) => (
           <div key={report._id} className="bg-white p-6 mb-6 rounded-lg shadow border-l-4 border-purple-700">
-            <div className="font-bold text-lg">{report.itemName}</div>
+            <div className="flex justify-between items-center">
+              <div className="font-bold text-lg">{report.itemName}</div>
+              {report.userId && (report.userId._id === user?.id || report.userId === user?.id) && (
+                <button
+                  onClick={() => handleDeleteReport(report._id)}
+                  className="ml-2 text-red-500 hover:underline text-xs"
+                >
+                  Delete Report
+                </button>
+              )}
+            </div>
             <div><strong>Description:</strong> {report.description}</div>
             <div><strong>Location:</strong> {report.location}</div>
             <div><strong>Date Lost:</strong> {report.dateLost ? report.dateLost.substring(0, 10) : ''}</div>
