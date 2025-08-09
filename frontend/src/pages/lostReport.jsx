@@ -1,40 +1,44 @@
 import { useState, useEffect } from 'react';
 import axiosInstance from '../axiosConfig';
-import TaskForm from '../components/TaskForm';
-import TaskList from '../components/TaskList';
+import LostReportForm from '../components/LostReportForm';
+import LostReportList from '../components/LostReportList';
 import { useAuth } from '../context/AuthContext';
 
-const Tasks = () => {
+const LostReports = () => {
   const { user } = useAuth();
-  const [tasks, setTasks] = useState([]);
-  const [editingTask, setEditingTask] = useState(null);
+  const [reports, setReports] = useState([]);
+  const [editingReport, setEditingReport] = useState(null);
 
   useEffect(() => {
-    const fetchTasks = async () => {
+    const fetchReports = async () => {
       try {
-        const response = await axiosInstance.get('/api/tasks', {
+        const response = await axiosInstance.get('/api/lostreports', {
           headers: { Authorization: `Bearer ${user.token}` },
         });
-        setTasks(response.data);
+        setReports(response.data);
       } catch (error) {
-        alert('Failed to fetch tasks.');
+        alert('Failed to fetch lost item reports.');
       }
     };
 
-    fetchTasks();
+    fetchReports();
   }, [user]);
 
   return (
     <div className="container mx-auto p-6">
-      <TaskForm
-        tasks={tasks}
-        setTasks={setTasks}
-        editingTask={editingTask}
-        setEditingTask={setEditingTask}
+      <LostReportForm
+        reports={reports}
+        setReports={setReports}
+        editingReport={editingReport}
+        setEditingReport={setEditingReport}
       />
-      <TaskList tasks={tasks} setTasks={setTasks} setEditingTask={setEditingTask} />
+      <LostReportList
+        reports={reports}
+        setReports={setReports}
+        setEditingReport={setEditingReport}
+      />
     </div>
   );
 };
 
-export default Tasks;
+export default LostReports;
