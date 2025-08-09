@@ -16,6 +16,7 @@ const Navbar = () => {
       <div>
         {user ? (
           <>
+            <Link to="/lostreports" className="mr-4">Lost Item Reports</Link>
             <Link to="/tasks" className="mr-4">CRUD</Link>
             <Link to="/profile" className="mr-4">Profile</Link>
             <button
