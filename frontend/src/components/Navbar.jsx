@@ -23,24 +23,26 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gradient-to-r from-purple-700 via-pink-500 to-yellow-400 text-white py-5 px-8 flex justify-between items-center shadow-lg rounded-b-lg border-b-4 border-yellow-300">
-      <Link to="/allreports" className="text-3xl font-extrabold tracking-wide drop-shadow-lg hover:scale-105 transition">
-        Lost & Found App
-      </Link>
-      <form onSubmit={handleSearch} className="flex items-center ml-8 mr-6">
-        <input
-          type="text"
-          placeholder="Search reports..."
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          className="p-2 rounded-l text-black border focus:outline-none"
-        />
-        <button
-          type="submit"
-          className="bg-yellow-400 text-purple-900 px-4 py-2 rounded-r font-bold hover:bg-yellow-300 transition"
-        >
-          Search
-        </button>
-      </form>
+      <div className="flex items-center space-x-8">
+        <Link to="/allreports" className="text-3xl font-extrabold tracking-wide drop-shadow-lg hover:scale-105 transition">
+          Lost & Found App
+        </Link>
+        <form onSubmit={handleSearch} className="flex items-center">
+          <input
+            type="text"
+            placeholder="Search reports..."
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            className="p-2 rounded-l text-black border focus:outline-none"
+          />
+          <button
+            type="submit"
+            className="bg-yellow-400 text-purple-900 px-4 py-2 rounded-r font-bold hover:bg-yellow-300 transition"
+          >
+            Search
+          </button>
+        </form>
+      </div>
       <div>
         {user ? (
           <>
