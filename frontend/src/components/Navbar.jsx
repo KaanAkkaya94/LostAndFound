@@ -26,7 +26,7 @@ const Navbar = () => {
       <Link to="/allreports" className="text-3xl font-extrabold tracking-wide drop-shadow-lg hover:scale-105 transition">
         Lost & Found App
       </Link>
-      <form onSubmit={handleSearch} className="flex items-center mr-6">
+      <form onSubmit={handleSearch} className="flex items-center ml-8 mr-6">
         <input
           type="text"
           placeholder="Search reports..."
