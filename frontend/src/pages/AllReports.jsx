@@ -192,16 +192,45 @@ const AllReports = () => {
   return (
     <div className="container mx-auto p-6 bg-gradient-to-br from-purple-100 via-yellow-50 to-pink-100 min-h-screen rounded-lg shadow">
       {/* This is the lost and found logo and message */}
-      <div className="flex flex-col items-center mb-6">
+      <div className="flex flex-col items-center mb-6 relative w-full" style={{ minHeight: '340px' }}>
         <img
           src={lostImage}
           alt="Lost and Found"
-          style={{ width: '180px', height: 'auto', borderRadius: '12px', marginBottom: '16px', boxShadow: '0 2px 8px #ccc' }}
+          style={{
+            width: '100%',
+            maxWidth: '1500px',
+            height: '480px',
+            objectFit: 'cover',
+            borderRadius: '16px',
+            boxShadow: '0 2px 8px #ccc',
+            filter: 'brightness(0.7)'
+          }}
         />
-        <h1 className="text-3xl font-bold text-purple-700">Welcome to the Lost and Found App</h1>
-        <p className="text-gray-600">
-          Browse lost item reports below. {user ? 'You can comment and manage your reports.' : 'Login to comment or manage your reports.'}
-        </p>
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '100%',
+            maxWidth: '1500px',
+            height: '480px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+            textShadow: '0 2px 8px #333',
+            pointerEvents: 'none'
+          }}
+        >
+          <h1 className="text-4xl font-bold" style={{ color: 'white', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', padding: '8px 24px' }}>
+            Welcome to the Lost and Found App
+          </h1>
+          <p className="text-lg mt-4" style={{ color: 'white', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', padding: '6px 18px' }}>
+            Browse lost item reports below. {user ? 'You can comment and manage your reports.' : 'Login to comment or manage your reports.'}
+          </p>
+        </div>
       </div>
       <h2 className="text-2xl font-bold mb-6 text-purple-700">All Lost Item Reports</h2>
       {loading ? (
