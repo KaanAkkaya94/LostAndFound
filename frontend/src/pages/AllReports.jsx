@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axiosInstance from '../axiosConfig';
 import { useAuth } from '../context/AuthContext';
+import lostImage from '../lost.jpg'; 
 
 const AllReports = () => {
   const { user } = useAuth();
@@ -190,8 +191,13 @@ const AllReports = () => {
 
   return (
     <div className="container mx-auto p-6 bg-gradient-to-br from-purple-100 via-yellow-50 to-pink-100 min-h-screen rounded-lg shadow">
-      {/* Welcome Logo and Message */}
+      {/* This is the lost and found logo and message */}
       <div className="flex flex-col items-center mb-6">
+        <img
+          src={lostImage}
+          alt="Lost and Found"
+          style={{ width: '180px', height: 'auto', borderRadius: '12px', marginBottom: '16px', boxShadow: '0 2px 8px #ccc' }}
+        />
         <h1 className="text-3xl font-bold text-purple-700">Welcome to the Lost and Found App</h1>
         <p className="text-gray-600">
           Browse lost item reports below. {user ? 'You can comment and manage your reports.' : 'Login to comment or manage your reports.'}
