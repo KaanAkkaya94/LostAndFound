@@ -259,6 +259,9 @@ const AllReports = () => {
                   </span>
                 )}
               </div>
+              <div className="text-sm text-gray-500 mb-2">
+                Reported by: {report.userId?.name || "Unknown"}
+              </div>
               {editingReport[report._id] ? (
                 <div className="mb-2">
                   <input
