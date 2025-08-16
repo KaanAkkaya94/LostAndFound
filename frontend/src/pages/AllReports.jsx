@@ -48,6 +48,8 @@ const AllReports = () => {
     report.location?.toLowerCase().includes(search)
   );
 
+
+  // Jira commit
   // --- Comment Handlers ---
   const handleCommentChange = (reportId, value) => {
     setCommentText({ ...commentText, [reportId]: value });
