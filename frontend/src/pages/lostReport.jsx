@@ -4,6 +4,8 @@ import LostReportForm from '../components/LostReportForm';
 import LostReportList from '../components/LostReportList';
 import { useAuth } from '../context/AuthContext';
 
+// This is a dummy jira commit
+
 const LostReports = () => {
   const { user } = useAuth();
   const [reports, setReports] = useState([]);
