@@ -320,6 +320,7 @@ const AllReports = () => {
                   <div><strong>Date Lost:</strong> {report.dateLost ? report.dateLost.substring(0, 10) : ''}</div>
                 </>
               )}
+              {/* Jira commit */}
               <div className="mt-4">
                 <h3 className="font-semibold mb-2">Comments:</h3>
                 <ul className="mb-2">
