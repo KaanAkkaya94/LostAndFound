@@ -244,6 +244,7 @@ const AllReports = () => {
             <div key={report._id} className="bg-white p-6 mb-6 rounded-lg shadow border-l-4 border-purple-700">
               <div className="flex justify-between items-center">
                 <div className="font-bold text-lg">{report.itemName}</div>
+                {/* dummy jira comment */}
                 {isReportOwner && (
                   <span>
                     <button
