@@ -55,7 +55,7 @@ const AllReports = () => {
     setCommentText({ ...commentText, [reportId]: value });
   };
 
-  // Jira commit
+  // Jira commit here
   const handleCommentSubmit = async (reportId) => {
     if (!user) return;
     if (!commentText[reportId]) return;
