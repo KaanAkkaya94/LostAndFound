@@ -357,6 +357,7 @@ const AllReports = () => {
                             <span className="font-semibold text-purple-700">{comment.user?.name || 'User'}:</span> {comment.text}
                           </span>
                         )}
+                        {/* Jira commit */}
                         {user && isOwner && !editingComment[comment._id] && (
                           <span>
                             <button
