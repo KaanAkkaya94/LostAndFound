@@ -339,6 +339,7 @@ const AllReports = () => {
                               onChange={e => handleEditChange(comment._id, e.target.value)}
                               className="flex-1 p-1 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
                             />
+                            {/* jira commit */}
                             <button
                               onClick={() => handleEditSave(report._id, comment._id)}
                               className="ml-2 text-green-600 hover:underline text-xs"
