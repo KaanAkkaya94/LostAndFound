@@ -92,3 +92,37 @@ We will send you an email to choose a Real-World project. If you face any diffic
 * Adherence to Git best practices and practical contributions.
 * Successful implementation, deploymentand CI/CD pipeline.
 * Problem-solving skills and the ability to go beyond basic requirements.
+
+
+# Lost and Found Application
+
+A full-stack web application for managing lost and found items with user authentication, commenting social media system, and search functionality.
+
+## Live Application
+
+- **Frontend URL:** http://http://54.206.248.205/
+
+## Project Management
+
+- **JIRA Board:** https://kaan-akkaya.atlassian.net/jira/software/projects/LFA/summary?atlOrigin=eyJpIjoiZjU4NGZkZDU0NzJjNGNjZGJiZTc0YzBhYTcxYjI2MWEiLCJwIjoiaiJ9
+
+- **GitHub Repository:** https://github.com/KaanAkkaya94/LostAndFound
+
+## Features
+
+- User Authentication (Login/Registration)
+- Lost Item Report Management (Create, Read, Update, Delete)
+- Comment System on Reports (Create, Read, Update, Delete)
+- Search and Filter functionality
+
+
+## Testing the Application
+
+### Option 1: Use Test Account
+- **Email:** test@test.com
+- **Password:** 1234
+
+### Option 2: Register New Account
+You can create your own account by clicking "Register" on the login page to test all functionality.
+
+
